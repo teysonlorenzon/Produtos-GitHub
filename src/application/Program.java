@@ -24,7 +24,6 @@ public class Program {
 		int numProd = sc.nextInt();
 
 		for (int i = 0; i < numProd; i++) {
-
 			System.out.println("Product #" + (i + 1) + " data:");
 			System.out.print("Common,used or imported (c/u/i)? ");
 			char decision = sc.next().charAt(0);
@@ -35,13 +34,12 @@ public class Program {
 			double price = sc.nextDouble();
 
 			if (decision == 'c') {
-
 				Product cProd = new Product(name, price);
 				listProd.add(cProd);
 			} else if (decision == 'u') {
 				System.out.print("manufacture date (DD/MM/YYYY): ");
 				Date date = sdf.parse(sc.next());
-
+				
 				Product uProd = new UsedProduct(name, price, date);
 				listProd.add(uProd);
 			} else if (decision == 'i') {
@@ -49,19 +47,15 @@ public class Program {
 				double customsFree = sc.nextDouble();
 
 				Product iProd = new ImportedProduct(name, price, customsFree);
-
 				listProd.add(iProd);
 			}
 
 		}
-
 		System.out.println();
 		System.out.println("PRICE TAGS:");
 		for (Product prod : listProd) {
 			System.out.println(prod.priceTag());
 		}
 		sc.close();
-
 	}
-
 }
